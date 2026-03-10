@@ -1,0 +1,174 @@
+.order-detail-page {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  h1 {
+    font-size: 2rem;
+    color: #1a1a2e;
+  }
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-card,
+.items-card,
+.actions-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  h2 {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    color: #1a1a2e;
+  }
+}
+
+.items-card,
+.actions-card {
+  margin-bottom: 1.5rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #f0f0f0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .label {
+    font-weight: 600;
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  .value {
+    color: #1a1a2e;
+
+    &.mono {
+      font-family: monospace;
+      font-size: 0.85rem;
+    }
+  }
+}
+
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  thead th {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #666;
+    border-bottom: 2px solid #eee;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  tfoot td {
+    border-top: 2px solid #ddd;
+    font-size: 1.05rem;
+  }
+}
+
+.status-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-status {
+  padding: 0.5rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: #4361ee;
+  }
+
+  &.active {
+    border-color: #4361ee;
+    background: #4361ee;
+    color: #fff;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &-primary {
+    background: #4361ee;
+    color: #fff;
+  }
+
+  &-secondary {
+    background: #6c757d;
+    color: #fff;
+  }
+
+  &-danger {
+    background: #dc3545;
+    color: #fff;
+  }
+}
+
+.not-found {
+  text-align: center;
+  padding: 3rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  h2 {
+    margin-bottom: 0.5rem;
+    color: #1a1a2e;
+  }
+
+  p {
+    color: #888;
+    margin-bottom: 1.5rem;
+  }
+}

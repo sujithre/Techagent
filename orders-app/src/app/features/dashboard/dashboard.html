@@ -1,0 +1,34 @@
+<div class="dashboard">
+  <h1>Orders Dashboard</h1>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="stat-label">Total Orders</span>
+      <span class="stat-value">{{ orderCount() }}</span>
+    </div>
+    <div class="stat-card revenue">
+      <span class="stat-label">Total Revenue</span>
+      <span class="stat-value">{{ totalRevenue() | currency }}</span>
+    </div>
+    <div class="stat-card pending">
+      <span class="stat-label">Pending Orders</span>
+      <span class="stat-value">{{ pendingOrders().length }}</span>
+    </div>
+  </div>
+
+  <div class="status-breakdown">
+    <h2>Status Breakdown</h2>
+    <div class="status-chips">
+      @for (entry of statusBreakdown() | keyvalue; track entry.key) {
+        <span class="chip" [attr.data-status]="entry.key">
+          {{ getStatusLabel(entry.key) }}: {{ entry.value }}
+        </span>
+      }
+    </div>
+  </div>
+
+  <div class="quick-actions">
+    <a routerLink="/orders" class="btn btn-primary">View All Orders</a>
+    <a routerLink="/orders/new" class="btn btn-success">Create New Order</a>
+  </div>
+</div>

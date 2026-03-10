@@ -1,0 +1,152 @@
+.new-order-page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  h1 {
+    font-size: 2rem;
+    color: #1a1a2e;
+  }
+}
+
+.form-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+
+  h2 {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    color: #1a1a2e;
+  }
+}
+
+.items-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.form-group {
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 0.35rem;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+
+    &:focus {
+      border-color: #4361ee;
+    }
+  }
+
+  &.small {
+    min-width: 100px;
+    flex: 0 0 120px;
+  }
+}
+
+.error {
+  color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.item-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+
+  .form-group {
+    flex: 1;
+    margin-bottom: 0;
+  }
+}
+
+.btn-remove {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-bottom: 0.15rem;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &-primary {
+    background: #4361ee;
+    color: #fff;
+  }
+
+  &-secondary {
+    background: #6c757d;
+    color: #fff;
+  }
+
+  &-add {
+    background: #2ec4b6;
+    color: #fff;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.85rem;
+  }
+}

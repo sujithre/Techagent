@@ -1,0 +1,95 @@
+<div class="order-detail-page">
+  @if (order(); as order) {
+    <div class="page-header">
+      <h1>Order Details</h1>
+      <a routerLink="/orders" class="btn btn-secondary">← Back to Orders</a>
+    </div>
+
+    <div class="detail-grid">
+      <div class="info-card">
+        <h2>Order Info</h2>
+        <div class="info-row">
+          <span class="label">Order ID</span>
+          <span class="value mono">{{ order.id }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Status</span>
+          <span class="value"><app-status-badge [status]="order.status" /></span>
+        </div>
+        <div class="info-row">
+          <span class="label">Created</span>
+          <span class="value">{{ order.createdAt | date: 'medium' }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Updated</span>
+          <span class="value">{{ order.updatedAt | date: 'medium' }}</span>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h2>Customer</h2>
+        <div class="info-row">
+          <span class="label">Name</span>
+          <span class="value">{{ order.customerName }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Email</span>
+          <span class="value">{{ order.customerEmail }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="items-card">
+      <h2>Order Items</h2>
+      <table class="items-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Qty</th>
+            <th>Unit Price</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of order.items; track item.productName) {
+            <tr>
+              <td>{{ item.productName }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>{{ item.unitPrice | currency }}</td>
+              <td>{{ item.totalPrice | currency }}</td>
+            </tr>
+          }
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3"><strong>Total</strong></td>
+            <td><strong>{{ order.totalAmount | currency }}</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="actions-card">
+      <h2>Update Status</h2>
+      <div class="status-buttons">
+        @for (status of statuses; track status) {
+          <button
+            class="btn btn-status"
+            [attr.data-status]="status"
+            [class.active]="order.status === status"
+            (click)="updateStatus(status)"
+          >
+            {{ statusLabels[status] }}
+          </button>
+        }
+      </div>
+      <button class="btn btn-danger" (click)="deleteOrder()">Delete Order</button>
+    </div>
+  } @else {
+    <div class="not-found">
+      <h2>Order Not Found</h2>
+      <p>The order you're looking for doesn't exist.</p>
+      <a routerLink="/orders" class="btn btn-primary">Back to Orders</a>
+    </div>
+  }
+</div>

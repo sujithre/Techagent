@@ -1,0 +1,64 @@
+<div class="order-list-page">
+  <div class="page-header">
+    <h1>Orders</h1>
+    <a routerLink="/orders/new" class="btn btn-success">+ New Order</a>
+  </div>
+
+  <div class="filters">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search by name or order ID..."
+      [ngModel]="searchTerm()"
+      (ngModelChange)="onSearchChange($event)"
+    />
+    <select
+      class="status-filter"
+      [ngModel]="filterStatus()"
+      (ngModelChange)="onFilterChange($event)"
+    >
+      <option value="">All Statuses</option>
+      @for (status of statuses; track status) {
+        <option [value]="status">{{ statusLabels[status] }}</option>
+      }
+    </select>
+  </div>
+
+  @if (filteredOrders().length === 0) {
+    <div class="empty-state">
+      <p>No orders found.</p>
+    </div>
+  } @else {
+    <div class="orders-table-wrapper">
+      <table class="orders-table">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Items</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (order of filteredOrders(); track order.id) {
+            <tr>
+              <td class="order-id">{{ order.id | slice: 0 : 8 }}...</td>
+              <td>{{ order.customerName }}</td>
+              <td>{{ order.items.length }}</td>
+              <td>{{ order.totalAmount | currency }}</td>
+              <td><app-status-badge [status]="order.status" /></td>
+              <td>{{ order.createdAt | date: 'mediumDate' }}</td>
+              <td class="actions">
+                <a [routerLink]="['/orders', order.id]" class="btn-icon" title="View">👁️</a>
+                <button class="btn-icon delete" (click)="deleteOrder(order.id)" title="Delete">🗑️</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

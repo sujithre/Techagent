@@ -1,0 +1,127 @@
+.dashboard {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a2e;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-left: 4px solid #4361ee;
+
+  &.revenue {
+    border-left-color: #2ec4b6;
+  }
+
+  &.pending {
+    border-left-color: #ff6b6b;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+}
+
+.status-breakdown {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #1a1a2e;
+  }
+}
+
+.status-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.chip {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  &[data-status='pending'] {
+    background: #fff3cd;
+    color: #856404;
+  }
+  &[data-status='confirmed'] {
+    background: #cce5ff;
+    color: #004085;
+  }
+  &[data-status='shipped'] {
+    background: #d4edda;
+    color: #155724;
+  }
+  &[data-status='delivered'] {
+    background: #d1ecf1;
+    color: #0c5460;
+  }
+  &[data-status='cancelled'] {
+    background: #f8d7da;
+    color: #721c24;
+  }
+}
+
+.quick-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &-primary {
+    background: #4361ee;
+    color: #fff;
+  }
+
+  &-success {
+    background: #2ec4b6;
+    color: #fff;
+  }
+}
